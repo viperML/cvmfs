@@ -880,25 +880,16 @@ if (BUILD_SERVER)
   #
   # BUILD_SERVER: install
   #
-  install(
-    CODE  "FILE(MAKE_DIRECTORY \$ENV{DESTDIR}/var/lib/cvmfs-server)"
-  )
   install (
     FILES        ${${PROJECT_NAME}_BINARY_DIR}/cvmfs/cvmfs_server
     DESTINATION  bin
     PERMISSIONS  OWNER_READ OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
   )
-  install(
-    FILES        doc/README-spooler
-    DESTINATION  "/var/spool/cvmfs"
-    PERMISSIONS  OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
-    RENAME       README
-  )
   install (
     TARGETS      cvmfs_suid_helper
     RUNTIME
     DESTINATION  bin
-    PERMISSIONS  OWNER_READ OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE SETUID
+    PERMISSIONS  OWNER_READ OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
   )
   install (
     TARGETS      cvmfs_swissknife cvmfs_publish
@@ -936,22 +927,22 @@ if (BUILD_SERVER)
 
   install(
     FILES        server/generate_stats_plots.C
-    DESTINATION  "/usr/share/cvmfs-server"
+    DESTINATION  share/cvmfs-server
     PERMISSIONS  OWNER_READ GROUP_READ WORLD_READ
   )
   install(
     FILES        server/upload_stats_plots.sh
-    DESTINATION  "/usr/share/cvmfs-server"
+    DESTINATION  share/cvmfs-server
     PERMISSIONS  OWNER_READ OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
   )
   install(
     FILES        server/fix_stats_db.sh
-    DESTINATION  "/usr/share/cvmfs-server"
+    DESTINATION  share/cvmfs-server
     PERMISSIONS  OWNER_READ OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
   )
   install(
     FILES        server/stats_index.html.tpl
-    DESTINATION  "/usr/share/cvmfs-server"
+    DESTINATION  share/cvmfs-server
     PERMISSIONS  OWNER_READ GROUP_READ WORLD_READ
   )
 

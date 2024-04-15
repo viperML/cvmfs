@@ -11,14 +11,12 @@ find_path(
     Libcrypto_INCLUDE_DIRS
     NAMES tls.h
     PATHS ${EXTERNALS_INSTALL_LOCATION}/crypto/include
-    NO_DEFAULT_PATH
 )
 
 find_library(
     Libcrypto_LIBRARIES
     NAMES crypto
     PATHS ${EXTERNALS_INSTALL_LOCATION}/crypto/lib
-    NO_DEFAULT_PATH
 )
 
 include(FindPackageHandleStandardArgs)

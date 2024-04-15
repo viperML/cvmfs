@@ -116,7 +116,7 @@ else (MACOSX) # --> Linux
     endif (ARCHLINUX)
     set (CMAKE_INSTALL_LIBDIR "lib")
   else (DEBIAN OR ARCHLINUX) # --> RedHat, Fedora, CentOS, SuSE
-    set (CMAKE_MOUNT_INSTALL_BINDIR "/sbin")
+    set (CMAKE_MOUNT_INSTALL_BINDIR "${CMAKE_INSTALL_SBINDIR}")
     set (CVMFS_LIBEXEC_DIR "libexec/cvmfs")
     if (IS_64_BIT)
       set (CMAKE_INSTALL_LIBDIR "lib64")

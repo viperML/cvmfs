@@ -142,25 +142,25 @@ else (MACOSX)
     PERMISSIONS   OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
   )
 
-  if (ARCHLINUX)
-    SET( autofsmap_link    /etc/autofs/auto.cvmfs)
-  else (ARCHLINUX)
-    SET( autofsmap_link    /etc/auto.cvmfs)
-  endif (ARCHLINUX)
-  SET( autofsmap_dest    ${CMAKE_INSTALL_PREFIX}/${CVMFS_LIBEXEC_DIR})
-  SET( autofsmap_target  ${autofsmap_dest}/auto.cvmfs)
-  # Symlink /etc/(autofs)/auto.cvmfs --> /usr/lib(exec)/cvmfs/auto.cvmfs
-  install(CODE "
-    if (\"\$ENV{DESTDIR}\" STREQUAL \"\")
-      execute_process(COMMAND ln -sf
-        ${autofsmap_target}
-        ${autofsmap_link})
-    else ()
-      execute_process(COMMAND ln -sf
-        ${autofsmap_target}
-        \$ENV{DESTDIR}/${autofsmap_link})
-    endif ()
-  ")
+  # if (ARCHLINUX)
+  #   SET( autofsmap_link    /etc/autofs/auto.cvmfs)
+  # else (ARCHLINUX)
+  #   SET( autofsmap_link    /etc/auto.cvmfs)
+  # endif (ARCHLINUX)
+  # SET( autofsmap_dest    ${CMAKE_INSTALL_PREFIX}/${CVMFS_LIBEXEC_DIR})
+  # SET( autofsmap_target  ${autofsmap_dest}/auto.cvmfs)
+  # # Symlink /etc/(autofs)/auto.cvmfs --> /usr/lib(exec)/cvmfs/auto.cvmfs
+  # install(CODE "
+  #   if (\"\$ENV{DESTDIR}\" STREQUAL \"\")
+  #     execute_process(COMMAND ln -sf
+  #       ${autofsmap_target}
+  #       ${autofsmap_link})
+  #   else ()
+  #     execute_process(COMMAND ln -sf
+  #       ${autofsmap_target}
+  #       \$ENV{DESTDIR}/${autofsmap_link})
+  #   endif ()
+  # ")
 
   install (
     TARGETS       ${MOUNT_TARGET_NAME}
